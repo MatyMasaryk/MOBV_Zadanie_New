@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
@@ -19,11 +20,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="50dp"
             android:layout_marginEnd="8dp"
-            android:textAlignment="center"
-            android:textSize="20sp"
             android:text="@string/title_signup"
+            android:textAlignment="center"
+            android:textSize="@dimen/text_size_title"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -32,8 +34,10 @@
             android:id="@+id/label_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="50dp"
             android:text="@string/email"
+            android:textSize="@dimen/text_size_large"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/header_title" />
 
@@ -41,20 +45,24 @@
             android:id="@+id/edit_text_email"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="@string/zadajte_email"
-            android:text="@={model.email}"
-            app:layout_constraintTop_toBottomOf="@+id/label_email"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:autofillHints="@string/zadajte_email"
-            android:inputType="textEmailAddress" />
+            android:hint="@string/zadajte_email"
+            android:inputType="textEmailAddress"
+            android:minHeight="48dp"
+            android:text="@={model.email}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/label_email"
+            tools:ignore="VisualLintTextFieldSize" />
 
         <TextView
             android:id="@+id/label_username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="48dp"
             android:text="@string/username"
+            android:textSize="@dimen/text_size_large"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/edit_text_email" />
 
@@ -62,53 +70,65 @@
             android:id="@+id/edit_text_username"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="@string/zadajte_username"
-            android:text="@={model.username}"
-            app:layout_constraintTop_toBottomOf="@+id/label_username"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:autofillHints="@string/zadajte_username"
-            android:inputType="text" />
+            android:hint="@string/zadajte_username"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:text="@={model.username}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/label_username"
+            tools:ignore="VisualLintTextFieldSize" />
 
         <TextView
             android:id="@+id/label_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/heslo"
+            android:textSize="@dimen/text_size_large"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit_text_username" />
+            app:layout_constraintTop_toBottomOf="@+id/edit_text_username"
+            android:layout_marginTop="@dimen/activity_vertical_margin"/>
 
         <EditText
             android:id="@+id/edit_text_password"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="@string/zadajte_heslo"
-            android:text="@={model.password}"
-            app:layout_constraintTop_toBottomOf="@+id/label_password"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:autofillHints="@string/zadajte_heslo"
-            android:inputType="textPassword" />
+            android:hint="@string/zadajte_heslo"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:text="@={model.password}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/label_password"
+            tools:ignore="VisualLintTextFieldSize" />
 
         <TextView
             android:id="@+id/label_password_repeat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/zopakujte_heslo"
+            android:textSize="@dimen/text_size_large"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit_text_password" />
+            app:layout_constraintTop_toBottomOf="@+id/edit_text_password"
+            android:layout_marginTop="@dimen/activity_vertical_margin"/>
 
         <EditText
             android:id="@+id/edit_text_password_repeat"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="@string/zopakujte_heslo"
-            android:text="@={model.repeat_password}"
-            app:layout_constraintTop_toBottomOf="@+id/label_password_repeat"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:autofillHints="@string/zopakujte_heslo"
-            android:inputType="textPassword" />
+            android:hint="@string/zadajte_heslo"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:text="@={model.repeat_password}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/label_password_repeat"
+            tools:ignore="VisualLintTextFieldSize" />
 
         <Button
             android:id="@+id/submit_button"
@@ -118,7 +138,9 @@
             android:onClick="@{()->model.registerUser()}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="@dimen/text_size_button"
+            android:layout_margin="@dimen/activity_vertical_margin"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

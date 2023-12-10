@@ -27,7 +27,6 @@ import androidx.work.WorkManager
 import com.google.android.gms.location.Geofence
 import com.google.android.gms.location.GeofencingRequest
 import com.google.android.gms.location.LocationServices
-import com.google.android.material.snackbar.Snackbar
 import eu.mcomputing.mobv.mobvzadanie.R
 import eu.mcomputing.mobv.mobvzadanie.broadcastReceivers.GeofenceBroadcastReceiver
 import eu.mcomputing.mobv.mobvzadanie.data.DataRepository
@@ -108,27 +107,15 @@ class ProfileFragment : Fragment() {
         }.also { bnd ->
             bnd.bottomBar.setActive(BottomBar.PROFILE)
 
-
-            bnd.loadProfileBtn.setOnClickListener {
-                val user = PreferenceData.getInstance().getUser(requireContext())
-                user?.let {
-                    viewModel.loadUser(it.id)
-                }
+            // Load user profile
+            val user = PreferenceData.getInstance().getUser(requireContext())
+            user?.let {
+                viewModel.loadUser(it.id)
             }
 
             bnd.logoutBtn.setOnClickListener {
                 PreferenceData.getInstance().clearData(requireContext())
                 it.findNavController().navigate(R.id.action_profile_intro)
-            }
-
-            viewModel.profileResult.observe(viewLifecycleOwner) {
-                if (it.isNotEmpty()) {
-                    Snackbar.make(
-                        bnd.loadProfileBtn,
-                        it,
-                        Snackbar.LENGTH_SHORT
-                    ).show()
-                }
             }
 
             bnd.locationSwitch.isChecked = PreferenceData.getInstance().getSharing(requireContext())

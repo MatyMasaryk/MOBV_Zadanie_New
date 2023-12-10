@@ -1,28 +1,31 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">MOBV Zadanie</string>
-    <string name="title_login">Prihlasenie</string>
+    <string name="title_login">Prihlásenie</string>
     <string name="title_intro">Intro</string>
-    <string name="title_signup">Registracia</string>
+    <string name="title_signup">Registrácia</string>
 
-    <string name="mapbox_access_token">pk.eyJ1IjoibWF0eW1hc2FyeWsiLCJhIjoiY2xwazN2NDM4MDY0NDJpanhjbWV1bmUwMiJ9.28K4QOiBy-p8IGErvigjRA</string>
+    <string name="mapbox_access_token" tools:ignore="Typos">pk.eyJ1IjoibWF0eW1hc2FyeWsiLCJhIjoiY2xwazN2NDM4MDY0NDJpanhjbWV1bmUwMiJ9.28K4QOiBy-p8IGErvigjRA</string>
 
-    <string name="email">Email:</string>
-    <string name="zadajte_email">Zadajte email</string>
-    <string name="username">Username:</string>
+    <string name="email">E-mail:</string>
+    <string name="zadajte_email">Zadajte e-mail</string>
+    <string name="username">Username</string>
     <string name="zadajte_username">Zadajte username</string>
     <string name="heslo">Heslo</string>
     <string name="zadajte_heslo">Zadajte heslo</string>
     <string name="zopakujte_heslo">Zopakujte heslo</string>
-    <string name="registruj_sa">Registruj sa</string>
-    <string name="prihlasit_sa">Prihlasit sa</string>
-    <string name="profile">Profile</string>
-    <string name="nacitaj_profil">Nacitaj profil</string>
-    <string name="odhlasit_sa">Odhlasit sa</string>
+    <string name="forgotten_password"><u>Zabudli ste heslo?</u></string>
+    <string name="registruj_sa">Registrovať sa</string>
+    <string name="prihlasit_sa">Prihlásiť sa</string>
+    <string name="profile">Môj Profil</string>
+    <string name="nacitaj_profil">Načítať profil</string>
+    <string name="odhlasit_sa">Odhlásit sa</string>
     <string name="feed_item_image">User item image</string>
-    <string name="intro_title">Zadanie</string>
+    <string name="intro_title">MOBV Zadanie</string>
+    <string name="intro_subtitle">Maty Masaryk</string>
     <string name="map_location_marker">location marker</string>
-    <string name="profile_share_location">Share my location</string>
+    <string name="profile_share_location">Zapnúť zdieľanie polohy</string>
     <string name="map_icon">Map icon</string>
     <string name="Feed_icon">Feed icon</string>
     <string name="profile_icon">Profile icon</string>
+    <string name="users_near_me">Užívateľia v mojom okolí</string>
 </resources>

@@ -8,35 +8,59 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/profile_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/intro_title"
-            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="40sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.503"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.421" />
 
-        <Button
-            android:id="@+id/login"
+        <TextView
+            android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/title_login"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintEnd_toStartOf="@+id/signup"
+            android:text="@string/intro_subtitle"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_chainStyle="packed" />
+            app:layout_constraintTop_toBottomOf="@+id/profile_title"
+            app:layout_constraintVertical_bias="0.0" />
 
         <Button
             android:id="@+id/signup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="44dp"
             android:text="@string/title_signup"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
+            android:textSize="@dimen/text_size_button"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/login"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <Button
+            android:id="@+id/login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="44dp"
+            android:layout_marginEnd="10dp"
+            android:text="@string/title_login"
+            android:textSize="@dimen/text_size_button"
+            app:layout_constraintEnd_toStartOf="@+id/signup"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
