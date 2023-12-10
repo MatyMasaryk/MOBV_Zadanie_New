@@ -27,7 +27,7 @@ class MyWorker(appContext: Context, workerParams: WorkerParameters) :
         return Result.success()
     }
 
-    suspend fun createNotification(context: Context) {
+    private suspend fun createNotification(context: Context) {
 
         val users = DataRepository.getInstance(context).getUsersList() ?: emptyList()
 
@@ -58,7 +58,7 @@ class MyWorker(appContext: Context, workerParams: WorkerParameters) :
                 Manifest.permission.POST_NOTIFICATIONS
             ) != PackageManager.PERMISSION_GRANTED
         ) {
-            Log.d("Notifikacia", "Chyba povolenie na notifikaciu");
+            Log.d("Notifikacia", "Chyba povolenie na notifikaciu")
             return
         }
 

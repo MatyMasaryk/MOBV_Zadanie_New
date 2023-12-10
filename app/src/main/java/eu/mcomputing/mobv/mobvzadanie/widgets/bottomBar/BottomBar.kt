@@ -23,7 +23,7 @@ class BottomBar : ConstraintLayout {
         active = index
     }
 
-    fun init() {
+    private fun init() {
         val layout =
             LayoutInflater.from(context)
                 .inflate(R.layout.widget_bottom_bar, this, false)

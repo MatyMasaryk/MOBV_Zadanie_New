@@ -46,9 +46,8 @@ class PreferenceData private constructor() {
 
     fun getSharing(context: Context?): Boolean {
         val sharedPref = getSharedPreferences(context) ?: return false
-        val sharing = sharedPref.getBoolean(sharingKey, false)
 
-        return sharing
+        return sharedPref.getBoolean(sharingKey, false)
     }
 
     companion object {

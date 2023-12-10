@@ -1,7 +1,6 @@
-package venaka.bioapp.data.db
+package eu.mcomputing.mobv.mobvzadanie.data.db
 
 import androidx.lifecycle.LiveData
-import eu.mcomputing.mobv.mobvzadanie.data.db.DbDao
 import eu.mcomputing.mobv.mobvzadanie.data.db.entities.GeofenceEntity
 import eu.mcomputing.mobv.mobvzadanie.data.db.entities.UserEntity
 
@@ -26,7 +25,7 @@ class LocalCache(private val dao: DbDao) {
 
     suspend fun getUsersList(): List<UserEntity>? = dao.getUsersList()
 
-    suspend fun deleteUserItems() {
+    private suspend fun deleteUserItems() {
         dao.deleteUserItems()
     }
 

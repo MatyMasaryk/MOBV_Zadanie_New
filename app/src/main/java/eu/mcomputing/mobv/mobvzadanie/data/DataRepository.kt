@@ -9,7 +9,7 @@ import eu.mcomputing.mobv.mobvzadanie.data.db.AppRoomDatabase
 import eu.mcomputing.mobv.mobvzadanie.data.db.entities.GeofenceEntity
 import eu.mcomputing.mobv.mobvzadanie.data.db.entities.UserEntity
 import eu.mcomputing.mobv.mobvzadanie.data.model.User
-import venaka.bioapp.data.db.LocalCache
+import eu.mcomputing.mobv.mobvzadanie.data.db.LocalCache
 import java.io.IOException
 
 class DataRepository private constructor(
@@ -139,7 +139,7 @@ class DataRepository private constructor(
             val response = service.listGeofence()
 
             if (response.isSuccessful) {
-                response.body()?.list?.let {
+                response.body()?.list?.let { it ->
                     val users = it.map {
                         UserEntity(
                             it.uid, it.name, it.updated,
