@@ -1,6 +1,7 @@
 package eu.mcomputing.mobv.mobvzadanie.data
 
 import android.content.Context
+import de.nycode.bcrypt.hash
 import eu.mcomputing.mobv.mobvzadanie.data.api.ApiService
 import eu.mcomputing.mobv.mobvzadanie.data.api.model.ChangePasswordRequest
 import eu.mcomputing.mobv.mobvzadanie.data.api.model.GeofenceUpdateRequest
@@ -56,6 +57,9 @@ class DataRepository private constructor(
             return Pair("Passwords don't match", null)
         }
         try {
+//            val hashedPassword = hash(password)
+//            val hashedString = hashedPassword.toString()
+
             val response = service.registerUser(UserRegistrationRequest(username, email, password))
             if (response.isSuccessful) {
                 response.body()?.let { json_response ->
@@ -92,6 +96,9 @@ class DataRepository private constructor(
             return Pair("Password can not be empty", null)
         }
         try {
+//            val hashedPassword = hash(password)
+//            val hashedString = hashedPassword.toString()
+
             val response = service.loginUser(UserLoginRequest(username, password))
             if (response.isSuccessful) {
                 response.body()?.let { json_response ->
@@ -160,6 +167,12 @@ class DataRepository private constructor(
             return "Passwords don't match"
         }
         try {
+//            val hashedPassword = hash(oldPassword)
+//            val hashedString = hashedPassword.toString()
+//
+//            val hashedNew = hash(newPassword)
+//            val hashedStringNew = hashedNew.toString()
+
             val response = service.changePassword(ChangePasswordRequest(oldPassword, newPassword))
 
             if (response.isSuccessful) {

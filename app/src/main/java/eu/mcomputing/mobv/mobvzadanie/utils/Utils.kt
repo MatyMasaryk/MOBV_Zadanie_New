@@ -40,29 +40,3 @@ fun applyShowTextToast(
         }
     }
 }
-
-fun generateRandomSalt(): ByteArray {
-    val random = SecureRandom()
-    val salt = ByteArray(16)
-    random.nextBytes(salt)
-    return salt
-}
-
-fun ByteArray.toHexString(): String = joinToString(separator = "") { eachByte ->
-    "%02x".format(eachByte)
-}
-
-private const val ALGORITHM = "PBKDF2WithHmacSHA512"
-private const val ITERATIONS = 120_000
-private const val KEY_LENGTH = 256
-
-fun generateHash(password: String, salt: String): String {
-    val combinedSalt = "$salt${AppConfig.Hash_SECRET}".toByteArray()
-
-    val factory: SecretKeyFactory = SecretKeyFactory.getInstance(ALGORITHM)
-    val spec: KeySpec = PBEKeySpec(password.toCharArray(), combinedSalt, ITERATIONS, KEY_LENGTH)
-    val key: SecretKey = factory.generateSecret(spec)
-    val hash: ByteArray = key.encoded
-
-    return hash.toHexString()
-}
