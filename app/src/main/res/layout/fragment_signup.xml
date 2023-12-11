@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.SignupFragment"
+    >
 
     <data>
 
@@ -34,7 +36,7 @@
             android:id="@+id/label_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="48dp"
             android:text="@string/email"
             android:textSize="@dimen/text_size_large"
             android:textStyle="bold"
@@ -48,7 +50,7 @@
             android:autofillHints="@string/zadajte_email"
             android:hint="@string/zadajte_email"
             android:inputType="textEmailAddress"
-            android:minHeight="48dp"
+            android:minHeight="@dimen/clickable_min_height"
             android:text="@={model.email}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -73,7 +75,7 @@
             android:autofillHints="@string/zadajte_username"
             android:hint="@string/zadajte_username"
             android:inputType="text"
-            android:minHeight="48dp"
+            android:minHeight="@dimen/clickable_min_height"
             android:text="@={model.username}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -98,7 +100,7 @@
             android:autofillHints="@string/zadajte_heslo"
             android:hint="@string/zadajte_heslo"
             android:inputType="textPassword"
-            android:minHeight="48dp"
+            android:minHeight="@dimen/clickable_min_height"
             android:text="@={model.password}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -123,7 +125,7 @@
             android:autofillHints="@string/zopakujte_heslo"
             android:hint="@string/zadajte_heslo"
             android:inputType="textPassword"
-            android:minHeight="48dp"
+            android:minHeight="@dimen/clickable_min_height"
             android:text="@={model.repeat_password}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

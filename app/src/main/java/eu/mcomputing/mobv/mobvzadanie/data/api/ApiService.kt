@@ -3,6 +3,8 @@ package eu.mcomputing.mobv.mobvzadanie.data.api
 import android.content.Context
 import eu.mcomputing.mobv.mobvzadanie.data.api.helper.AuthInterceptor
 import eu.mcomputing.mobv.mobvzadanie.data.api.helper.TokenAuthenticator
+import eu.mcomputing.mobv.mobvzadanie.data.api.model.ChangePasswordRequest
+import eu.mcomputing.mobv.mobvzadanie.data.api.model.ChangePasswordResponse
 import eu.mcomputing.mobv.mobvzadanie.data.api.model.GeofenceListResponse
 import eu.mcomputing.mobv.mobvzadanie.data.api.model.GeofenceUpdateRequest
 import eu.mcomputing.mobv.mobvzadanie.data.api.model.GeofenceUpdateResponse
@@ -10,6 +12,8 @@ import eu.mcomputing.mobv.mobvzadanie.data.api.model.LoginResponse
 import eu.mcomputing.mobv.mobvzadanie.data.api.model.RefreshTokenRequest
 import eu.mcomputing.mobv.mobvzadanie.data.api.model.RefreshTokenResponse
 import eu.mcomputing.mobv.mobvzadanie.data.api.model.RegistrationResponse
+import eu.mcomputing.mobv.mobvzadanie.data.api.model.ResetPasswordRequest
+import eu.mcomputing.mobv.mobvzadanie.data.api.model.ResetPasswordResponse
 import eu.mcomputing.mobv.mobvzadanie.data.api.model.UserLoginRequest
 import eu.mcomputing.mobv.mobvzadanie.data.api.model.UserRegistrationRequest
 import eu.mcomputing.mobv.mobvzadanie.data.api.model.UserResponse
@@ -54,6 +58,12 @@ interface ApiService {
 
     @DELETE("geofence/update.php")
     suspend fun deleteGeofence(): Response<GeofenceUpdateResponse>
+
+    @POST("user/password.php")
+    suspend fun changePassword(@Body body: ChangePasswordRequest): Response<ChangePasswordResponse>
+
+    @POST("user/reset.php")
+    suspend fun resetPassword(@Body body: ResetPasswordRequest): Response<ResetPasswordResponse>
 
     companion object {
         fun create(context: Context): ApiService {

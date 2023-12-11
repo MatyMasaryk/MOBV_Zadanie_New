@@ -59,6 +59,20 @@
             android:id="@+id/action_profile_intro"
             app:popUpToInclusive="true"
             app:destination="@id/introFragment" />
+        <action
+            android:id="@+id/action_profile_password"
+            app:popUpToInclusive="true"
+            app:destination="@id/passwordFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/passwordFragment"
+        android:name="eu.mcomputing.mobv.mobvzadanie.fragments.PasswordFragment"
+        android:label="PasswordFragment">
+    <action
+        android:id="@+id/action_password_login"
+        app:popUpToInclusive="true"
+        app:destination="@id/loginFragment" />
     </fragment>
 
 

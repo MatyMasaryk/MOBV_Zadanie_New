@@ -107,12 +107,20 @@ class ProfileFragment : Fragment() {
         }.also { bnd ->
             bnd.bottomBar.setActive(BottomBar.PROFILE)
 
-            // Load user profile
+            // Load user profile automatically
             val user = PreferenceData.getInstance().getUser(requireContext())
             user?.let {
                 viewModel.loadUser(it.id)
             }
 
+            // Change password
+            bnd.changePasswordBtn.setOnClickListener {
+                it.findNavController().navigate(R.id.action_profile_password)
+            }
+
+            // TODO: Change profile photo
+
+            // Logout
             bnd.logoutBtn.setOnClickListener {
                 PreferenceData.getInstance().clearData(requireContext())
                 it.findNavController().navigate(R.id.action_profile_intro)

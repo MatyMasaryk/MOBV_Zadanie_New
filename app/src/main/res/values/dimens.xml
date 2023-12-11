@@ -8,4 +8,6 @@
     <dimen name="text_size_button">16sp</dimen>
     <dimen name="text_size_title">34sp</dimen>
     <dimen name="text_size_large">22sp</dimen>
+
+    <dimen name="clickable_min_height">48dp</dimen>
 </resources>

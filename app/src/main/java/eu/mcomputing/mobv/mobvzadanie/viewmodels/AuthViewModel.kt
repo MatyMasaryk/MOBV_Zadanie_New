@@ -23,6 +23,12 @@ class AuthViewModel(private val dataRepository: DataRepository) : ViewModel() {
     val password = MutableLiveData<String>()
     val repeat_password = MutableLiveData<String>()
 
+    private val _passwordResult = MutableLiveData<String>()
+    val passwordResult: LiveData<String> get() = _passwordResult
+
+    val oldPassword = MutableLiveData<String>()
+    val newPassword = MutableLiveData<String>()
+
     fun registerUser() {
         viewModelScope.launch {
             val result = dataRepository.apiRegisterUser(
@@ -40,6 +46,16 @@ class AuthViewModel(private val dataRepository: DataRepository) : ViewModel() {
             val result = dataRepository.apiLoginUser(username.value ?: "", password.value ?: "")
             _loginResult.postValue(result.first ?: "")
             _userResult.postValue(result.second)
+        }
+    }
+
+    fun changePassword() {
+        viewModelScope.launch {
+            val result = dataRepository.apiChangePassword(oldPassword.value ?: "",
+                newPassword.value ?: "")
+//            _passwordResult.postValue(result.first ?: "")
+//            _userResult.postValue(result.second)
+            _passwordResult.postValue(result ?: "")
         }
     }
 }

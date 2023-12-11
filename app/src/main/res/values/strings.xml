@@ -10,22 +10,34 @@
     <string name="zadajte_email">Zadajte e-mail</string>
     <string name="username">Username</string>
     <string name="zadajte_username">Zadajte username</string>
+
     <string name="heslo">Heslo</string>
     <string name="zadajte_heslo">Zadajte heslo</string>
     <string name="zopakujte_heslo">Zopakujte heslo</string>
     <string name="forgotten_password"><u>Zabudli ste heslo?</u></string>
+    <string name="current_password">Súčasné heslo</string>
+    <string name="enter_current_password">Zadajte vaše heslo</string>
+    <string name="new_password">Nové heslo</string>
+    <string name="enter_new_password">Zadajte nové heslo</string>
+    <string name="repeat_new_password">Zopakujte nové heslo</string>
+    <string name="change_password">Zmeniť heslo</string>
+    <string name="change_password_title">Zmena hesla</string>
+
     <string name="registruj_sa">Registrovať sa</string>
     <string name="prihlasit_sa">Prihlásiť sa</string>
     <string name="profile">Môj Profil</string>
     <string name="nacitaj_profil">Načítať profil</string>
     <string name="odhlasit_sa">Odhlásit sa</string>
+    <string name="change_photo">Upraviť fotku</string>
     <string name="feed_item_image">User item image</string>
     <string name="intro_title">MOBV Zadanie</string>
     <string name="intro_subtitle">Maty Masaryk</string>
     <string name="map_location_marker">location marker</string>
     <string name="profile_share_location">Zapnúť zdieľanie polohy</string>
+    <string name="share_location">Zdieľanie polohy</string>
     <string name="map_icon">Map icon</string>
     <string name="Feed_icon">Feed icon</string>
     <string name="profile_icon">Profile icon</string>
     <string name="users_near_me">Užívateľia v mojom okolí</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -35,4 +35,5 @@ class ProfileViewModel(private val dataRepository: DataRepository) : ViewModel()
             dataRepository.removeGeofence()
         }
     }
+
 }

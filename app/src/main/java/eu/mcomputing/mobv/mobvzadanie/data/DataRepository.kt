@@ -2,6 +2,7 @@ package eu.mcomputing.mobv.mobvzadanie.data
 
 import android.content.Context
 import eu.mcomputing.mobv.mobvzadanie.data.api.ApiService
+import eu.mcomputing.mobv.mobvzadanie.data.api.model.ChangePasswordRequest
 import eu.mcomputing.mobv.mobvzadanie.data.api.model.GeofenceUpdateRequest
 import eu.mcomputing.mobv.mobvzadanie.data.api.model.UserLoginRequest
 import eu.mcomputing.mobv.mobvzadanie.data.api.model.UserRegistrationRequest
@@ -132,6 +133,34 @@ class DataRepository private constructor(
             ex.printStackTrace()
         }
         return Pair("Fatal error. Failed to load user.", null)
+    }
+
+    suspend fun apiChangePassword(
+        oldPassword: String,
+        newPassword: String
+    ): String {
+        if (oldPassword.isEmpty()) {
+            return "Password can not be empty"
+        }
+        if (newPassword.isEmpty()) {
+            return "Password can not be empty"
+        }
+        try {
+            val response = service.changePassword(ChangePasswordRequest(oldPassword, newPassword))
+
+            if (response.isSuccessful) {
+                response.body()?.let {
+                    return ""
+                }
+            }
+            return "Failed to change password."
+        } catch (ex: IOException) {
+            ex.printStackTrace()
+            return "Check internet connection. Failed to change password."
+        } catch (ex: Exception) {
+            ex.printStackTrace()
+        }
+        return "Fatal error. Failed to change password."
     }
 
     suspend fun apiListGeofence(): String {
