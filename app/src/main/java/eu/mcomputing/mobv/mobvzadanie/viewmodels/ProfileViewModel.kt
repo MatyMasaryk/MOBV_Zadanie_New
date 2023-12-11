@@ -36,4 +36,9 @@ class ProfileViewModel(private val dataRepository: DataRepository) : ViewModel()
         }
     }
 
+    fun clearModel() {
+        _userResult.value = null
+        _profileResult.value = ""
+    }
+
 }

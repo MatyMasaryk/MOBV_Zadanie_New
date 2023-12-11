@@ -32,6 +32,7 @@ import eu.mcomputing.mobv.mobvzadanie.broadcastReceivers.GeofenceBroadcastReceiv
 import eu.mcomputing.mobv.mobvzadanie.data.DataRepository
 import eu.mcomputing.mobv.mobvzadanie.data.PreferenceData
 import eu.mcomputing.mobv.mobvzadanie.databinding.FragmentProfileBinding
+import eu.mcomputing.mobv.mobvzadanie.viewmodels.AuthViewModel
 import eu.mcomputing.mobv.mobvzadanie.viewmodels.ProfileViewModel
 import eu.mcomputing.mobv.mobvzadanie.widgets.bottomBar.BottomBar
 import eu.mcomputing.mobv.mobvzadanie.workers.MyWorker
@@ -41,6 +42,7 @@ import java.util.concurrent.TimeUnit
 class ProfileFragment : Fragment() {
     private lateinit var viewModel: ProfileViewModel
     private lateinit var binding: FragmentProfileBinding
+    private lateinit var authViewModel: AuthViewModel
 
     private val PERMISSIONS_REQUIRED = when {
         Build.VERSION.SDK_INT >= 33 -> { // android 13
@@ -88,6 +90,12 @@ class ProfileFragment : Fragment() {
                 return ProfileViewModel(DataRepository.getInstance(requireContext())) as T
             }
         })[ProfileViewModel::class.java]
+
+        authViewModel = ViewModelProvider(requireActivity(), object : ViewModelProvider.Factory {
+            override fun <T : ViewModel> create(modelClass: Class<T>): T {
+                return AuthViewModel(DataRepository.getInstance(requireContext())) as T
+            }
+        })[AuthViewModel::class.java]
     }
 
     override fun onCreateView(
@@ -122,6 +130,8 @@ class ProfileFragment : Fragment() {
 
             // Logout
             bnd.logoutBtn.setOnClickListener {
+                viewModel.clearModel()
+                authViewModel.clearModel()
                 PreferenceData.getInstance().clearData(requireContext())
                 it.findNavController().navigate(R.id.action_profile_intro)
             }

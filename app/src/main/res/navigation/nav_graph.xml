@@ -73,6 +73,10 @@
         android:id="@+id/action_password_login"
         app:popUpToInclusive="true"
         app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_password_intro"
+            app:popUpToInclusive="true"
+            app:destination="@id/introFragment" />
     </fragment>
 
 

@@ -47,15 +47,17 @@ class PasswordFragment : Fragment() {
 
             viewModel.passwordResult.observe(viewLifecycleOwner) {
                 if (it.isNotEmpty()) {
-                    Snackbar.make(
-                        bnd.submitButton,
-                        it,
-                        Snackbar.LENGTH_SHORT
-                    ).show()
+                    if (it != viewModel.passResultMessage) {
+                        Snackbar.make(
+                            bnd.submitButton,
+                            it,
+                            Snackbar.LENGTH_SHORT
+                        ).show()
+                    }
                 }
                 else {
-                    PreferenceData.getInstance().clearData(requireContext())
-                    requireView().findNavController().navigate(R.id.action_password_login)
+                    viewModel.clearPassResult()
+                    requireView().findNavController().navigate(R.id.action_to_profile)
                 }
             }
 
