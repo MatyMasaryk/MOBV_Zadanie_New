@@ -38,6 +38,6 @@
     <string name="map_icon">Map icon</string>
     <string name="Feed_icon">Feed icon</string>
     <string name="profile_icon">Profile icon</string>
-    <string name="users_near_me">Užívateľia v mojom okolí</string>
+    <string name="users_near_me">Užívatelia v mojom okolí</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

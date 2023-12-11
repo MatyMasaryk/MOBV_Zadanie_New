@@ -37,7 +37,8 @@ class DataRepository private constructor(
     suspend fun apiRegisterUser(
         username: String,
         email: String,
-        password: String
+        password: String,
+        repeatPassword: String
     ): Pair<String, User?> {
         if (username.isEmpty()) {
             return Pair("Username can not be empty", null)
@@ -47,6 +48,12 @@ class DataRepository private constructor(
         }
         if (password.isEmpty()) {
             return Pair("Password can not be empty", null)
+        }
+        if (repeatPassword.isEmpty()) {
+            return Pair("Repeat the password", null)
+        }
+        if (password != repeatPassword) {
+            return Pair("Passwords don't match", null)
         }
         try {
             val response = service.registerUser(UserRegistrationRequest(username, email, password))
@@ -137,13 +144,20 @@ class DataRepository private constructor(
 
     suspend fun apiChangePassword(
         oldPassword: String,
-        newPassword: String
+        newPassword: String,
+        repeatPassword: String
     ): String {
         if (oldPassword.isEmpty()) {
             return "Password can not be empty"
         }
         if (newPassword.isEmpty()) {
             return "Password can not be empty"
+        }
+        if (repeatPassword.isEmpty()) {
+            return "Repeat the new password"
+        }
+        if (newPassword != repeatPassword) {
+            return "Passwords don't match"
         }
         try {
             val response = service.changePassword(ChangePasswordRequest(oldPassword, newPassword))
