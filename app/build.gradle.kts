@@ -65,4 +65,5 @@ dependencies {
     implementation("androidx.work:work-runtime-ktx:2.9.0")
 
     implementation("de.nycode:bcrypt:2.3.0")
+    implementation("com.squareup.picasso:picasso:2.8")
 }
