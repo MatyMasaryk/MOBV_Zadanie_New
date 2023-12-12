@@ -1,7 +1,6 @@
 package eu.mcomputing.mobv.mobvzadanie.data
 
 import android.content.Context
-import de.nycode.bcrypt.hash
 import eu.mcomputing.mobv.mobvzadanie.data.api.ApiService
 import eu.mcomputing.mobv.mobvzadanie.data.api.model.ChangePasswordRequest
 import eu.mcomputing.mobv.mobvzadanie.data.api.model.GeofenceUpdateRequest
@@ -63,6 +62,13 @@ class DataRepository private constructor(
             val response = service.registerUser(UserRegistrationRequest(username, email, password))
             if (response.isSuccessful) {
                 response.body()?.let { json_response ->
+                    println(json_response)
+                    if (json_response.uid == "-1") {
+                        return Pair("Username already taken.", null)
+                    }
+                    if (json_response.uid == "-2") {
+                        return Pair("Email already taken.", null)
+                    }
                     return Pair(
                         "",
                         User(

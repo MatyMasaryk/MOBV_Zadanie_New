@@ -27,7 +27,7 @@ class FeedViewModel(private val repository: DataRepository) : ViewModel() {
         get() = _message
 
     private val _selectedUser = MutableLiveData<UserEntity>(null)
-    val selectedUser: LiveData<UserEntity>? get() = _selectedUser
+    val selectedUser: LiveData<UserEntity> get() = _selectedUser
 
     fun updateItems() {
         viewModelScope.launch {

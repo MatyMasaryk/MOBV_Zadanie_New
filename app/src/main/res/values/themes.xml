@@ -1,8 +1,5 @@
 <resources>
-    <!-- Base application theme. -->
-<!--    <style name="Theme.MOBVZadanie" parent="Theme.Material3.DayNight.NoActionBar">-->
     <style name="Theme.MOBVZadanie" parent="Theme.MaterialComponents.Light.NoActionBar">
-                <!-- Primary brand color. -->
         <item name="colorPrimary">@color/blue_800</item>
         <item name="colorPrimaryVariant">@color/blue_900</item>
         <item name="colorSecondary">@color/orange_800</item>

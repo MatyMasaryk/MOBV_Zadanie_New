@@ -10,7 +10,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.squareup.picasso.Picasso
 import eu.mcomputing.mobv.mobvzadanie.R
 import eu.mcomputing.mobv.mobvzadanie.data.DataRepository
-import eu.mcomputing.mobv.mobvzadanie.databinding.FragmentFeedBinding
 import eu.mcomputing.mobv.mobvzadanie.databinding.FragmentUserBinding
 import eu.mcomputing.mobv.mobvzadanie.viewmodels.FeedViewModel
 import eu.mcomputing.mobv.mobvzadanie.widgets.bottomBar.BottomBar

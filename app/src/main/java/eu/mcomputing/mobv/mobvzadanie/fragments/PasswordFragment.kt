@@ -11,7 +11,6 @@ import androidx.navigation.findNavController
 import com.google.android.material.snackbar.Snackbar
 import eu.mcomputing.mobv.mobvzadanie.R
 import eu.mcomputing.mobv.mobvzadanie.data.DataRepository
-import eu.mcomputing.mobv.mobvzadanie.data.PreferenceData
 import eu.mcomputing.mobv.mobvzadanie.databinding.FragmentPasswordBinding
 import eu.mcomputing.mobv.mobvzadanie.viewmodels.AuthViewModel
 

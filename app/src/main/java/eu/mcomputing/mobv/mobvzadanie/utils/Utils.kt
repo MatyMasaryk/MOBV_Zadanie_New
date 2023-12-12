@@ -4,13 +4,7 @@ import android.view.View
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.DiffUtil
 import com.google.android.material.snackbar.Snackbar
-import eu.mcomputing.mobv.mobvzadanie.config.AppConfig
 import eu.mcomputing.mobv.mobvzadanie.data.db.entities.UserEntity
-import java.security.SecureRandom
-import java.security.spec.KeySpec
-import javax.crypto.SecretKey
-import javax.crypto.SecretKeyFactory
-import javax.crypto.spec.PBEKeySpec
 
 class ItemDiffCallback(
     private val oldList: List<UserEntity>,
