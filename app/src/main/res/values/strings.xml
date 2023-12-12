@@ -22,10 +22,12 @@
     <string name="repeat_new_password">Zopakujte nové heslo</string>
     <string name="change_password">Zmeniť heslo</string>
     <string name="change_password_title">Zmena hesla</string>
-
+    <string name="last_seen">Čas stretnutia</string>
     <string name="registruj_sa">Registrovať sa</string>
     <string name="prihlasit_sa">Prihlásiť sa</string>
     <string name="profile">Môj Profil</string>
+    <string name="user_profile">Profil Užívateľa</string>
+    <string name="profile_photo">Profilová fotka</string>
     <string name="nacitaj_profil">Načítať profil</string>
     <string name="odhlasit_sa">Odhlásit sa</string>
     <string name="change_photo">Upraviť fotku</string>

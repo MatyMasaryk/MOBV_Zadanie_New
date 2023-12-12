@@ -44,7 +44,18 @@
     <fragment
         android:id="@+id/feedFragment"
         android:name="eu.mcomputing.mobv.mobvzadanie.fragments.FeedFragment"
-        android:label="FeedFragment" />
+        android:label="FeedFragment" >
+        <action
+            android:id="@+id/action_feed_user"
+            app:popUpToInclusive="true"
+            app:destination="@id/userFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="eu.mcomputing.mobv.mobvzadanie.fragments.UserFragment"
+        android:label="UserFragment" />
+
 
     <fragment
         android:id="@+id/mapFragment"

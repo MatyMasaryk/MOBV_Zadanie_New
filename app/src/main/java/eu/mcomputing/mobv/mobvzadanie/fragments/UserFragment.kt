@@ -1,25 +1,23 @@
 package eu.mcomputing.mobv.mobvzadanie.fragments
 
 import android.os.Bundle
-import android.util.Log
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
+import com.squareup.picasso.Picasso
 import eu.mcomputing.mobv.mobvzadanie.R
-import eu.mcomputing.mobv.mobvzadanie.adapters.FeedAdapter
 import eu.mcomputing.mobv.mobvzadanie.data.DataRepository
 import eu.mcomputing.mobv.mobvzadanie.databinding.FragmentFeedBinding
+import eu.mcomputing.mobv.mobvzadanie.databinding.FragmentUserBinding
 import eu.mcomputing.mobv.mobvzadanie.viewmodels.FeedViewModel
 import eu.mcomputing.mobv.mobvzadanie.widgets.bottomBar.BottomBar
 
-class FeedFragment : Fragment() {
+class UserFragment : Fragment() {
     private lateinit var viewModel: FeedViewModel
-    private lateinit var binding: FragmentFeedBinding
+    private lateinit var binding: FragmentUserBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,10 +33,9 @@ class FeedFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentFeedBinding.inflate(inflater, container, false)
+        binding = FragmentUserBinding.inflate(inflater, container, false)
         return binding.root
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -49,29 +46,17 @@ class FeedFragment : Fragment() {
         }.also { bnd ->
             bnd.bottomBar.setActive(BottomBar.FEED)
 
-            bnd.feedRecyclerview.layoutManager = LinearLayoutManager(context)
-            val feedAdapter = FeedAdapter()
-            bnd.feedRecyclerview.adapter = feedAdapter
-
-            // Pozorovanie zmeny hodnoty
-            viewModel.feed_items.observe(viewLifecycleOwner) { items ->
-                Log.d("FeedFragment", "nove hodnoty $items")
-                feedAdapter.updateItems(items ?: emptyList())
-            }
-
-            feedAdapter.onItemClick = {
-                viewModel.selectUser(it)
-                requireView().findNavController().navigate(R.id.action_feed_user)
-            }
-
-            bnd.pullRefresh.setOnRefreshListener {
-                viewModel.updateItems()
-            }
-            viewModel.loading.observe(viewLifecycleOwner) {
-                bnd.pullRefresh.isRefreshing = it
+            val urlBase = "https://upload.mcomputing.eu/"
+            val userItem = viewModel.selectedUser?.value
+            val urlPhoto = userItem?.photo
+            if (urlPhoto != null && urlPhoto != "") {
+                Picasso.get().load(urlBase + urlPhoto).into(bnd.profilePicture)
+            } else {
+                bnd.profilePicture.setImageResource(R.drawable.baseline_account_box_24)
             }
 
         }
 
     }
+
 }

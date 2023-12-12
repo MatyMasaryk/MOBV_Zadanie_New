@@ -26,11 +26,18 @@ class FeedViewModel(private val repository: DataRepository) : ViewModel() {
     val message: LiveData<Evento<String>>
         get() = _message
 
+    private val _selectedUser = MutableLiveData<UserEntity>(null)
+    val selectedUser: LiveData<UserEntity>? get() = _selectedUser
+
     fun updateItems() {
         viewModelScope.launch {
             loading.postValue(true)
             _message.postValue(Evento(repository.apiListGeofence()))
             loading.postValue(false)
         }
+    }
+
+    fun selectUser(user: UserEntity) {
+        _selectedUser.postValue(user)
     }
 }
